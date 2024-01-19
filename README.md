@@ -1,6 +1,7 @@
 # BizMate: Streamlining Business Operations
+![Final Logo](https://github.com/codinggita/bizmate/assets/99180924/a2c08b84-91b6-46fa-b0b3-d514328f4ebc)
 
-![BizMate Logo](https://github.com/prokrishpatel/full_stack/assets/99180924/803facb5-81bf-44df-add5-cdbc628e2721)
+
 
 ## Problem Addressed
 
