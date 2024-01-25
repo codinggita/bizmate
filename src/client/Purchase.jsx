@@ -1,12 +1,11 @@
 import React from "react";
-import './style/dashboard.css';
+import './style/purchase.css';
 
-const Dashboard = ()=>{
-    
+
+const Purchase=()=>{
         return(
             <div>
             </div>
         );
-    
 }
-export default Dashboard;
+export default Purchase; 

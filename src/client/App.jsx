@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Landing from "./Landing";
-import Dashboard from "./Dashboard";
+import Home from "./Home";
 import './style/App.css';
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="main-frame">
       {showLanding && <Landing />}
-      {!showLanding && <Dashboard />}
+      {!showLanding && <Home />}
     </div>
   );
 }
