@@ -1,12 +1,12 @@
 import React from "react";
-import './style/dashboard.css';
+import './style/sale.css';
 
-const Dashboard = ()=>{
-    
+const Sale = ()=> {
+   
         return(
             <div>
             </div>
         );
     
 }
-export default Dashboard;
+export default Sale; 

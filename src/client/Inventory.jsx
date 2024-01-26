@@ -1,7 +1,7 @@
 import React from "react";
-import './style/dashboard.css';
+import './style/inventory.css';
 
-const Dashboard = ()=>{
+const Inventory = ()=>{
     
         return(
             <div>
@@ -9,4 +9,4 @@ const Dashboard = ()=>{
         );
     
 }
-export default Dashboard;
+export default Inventory; 
