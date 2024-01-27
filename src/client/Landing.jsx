@@ -11,6 +11,7 @@ import Register from './Register';
 import './style/landing.css';
 
 const Landing = () => {
+  const landing = document.querySelector('.landing');
   const [currentSlide, setCurrentSlide] = useState(1);
   const [loginstate, setlogin] = useState(false);
   const [registerstate, setregister] = useState(false);
@@ -29,8 +30,9 @@ const Landing = () => {
       const nextSlide = (currentSlide % 5) + 1;
 
       document.getElementById(`s${currentSlide}`).style.display = 'none';
-      document.getElementById(`s${nextSlide}`).style.display = 'flex';
 
+      document.getElementById(`s${nextSlide}`).style.display = 'flex';
+      landing.style.height = '100vh';
       setCurrentSlide(nextSlide);
     }, 5000);
 
