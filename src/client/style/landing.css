@@ -146,7 +146,7 @@
         margin-bottom: 50px;
     }
     .landing{
-        height: auto;
+        /* height: auto; */
     }
     .left-part{
         width: 90%;padding-bottom: 90%
@@ -183,5 +183,4 @@
 }
 .animate__animated.animate__heartBeat {
     --animate-duration: 4s;
-    
   }
