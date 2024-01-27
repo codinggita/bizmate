@@ -66,6 +66,8 @@ const Landing = () => {
   const handleCloseForm = ()=>{
     setlogin(false);
     setregister(false);
+    document.getElementById('welcome').style.pointerEvents = 'auto';
+
   }
   return (
     <React.Fragment>

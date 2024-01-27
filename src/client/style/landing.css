@@ -47,7 +47,7 @@
     height: 70px;
     font-size: 2rem;
     color: white;
-    padding-top: 10px;
+    padding-top: 5px;
 }
 .blurry-header-helper {
     backdrop-filter: blur(15px);
@@ -68,7 +68,6 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 100px;
-    transition: all 3sec;
 }
 .left-part{
     z-index: 10;
@@ -146,7 +145,7 @@
         margin-bottom: 50px;
     }
     .landing{
-        /* height: auto; */
+        height: auto;
     }
     .left-part{
         width: 90%;padding-bottom: 90%
@@ -183,4 +182,5 @@
 }
 .animate__animated.animate__heartBeat {
     --animate-duration: 4s;
+    
   }
