@@ -186,4 +186,8 @@ transform: translateX(-56px);
         top: 27px;
     }
     
+    form lable{
+        font-size: 1rem;
+    }
+    
 }

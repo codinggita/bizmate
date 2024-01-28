@@ -2,8 +2,22 @@ import React from "react";
 import bizmateLogo from './assets/logoNobg.png';
 import './style/form.css';
 const Login = (props)=>{
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    
+        const enteredMobile = document.getElementById('mobile').value;
+        const enteredPassword = document.getElementById('pass').value;
+    
+        
+        if (!enteredMobile || !enteredPassword) {
+          alert('Please fill in all fields.');
+        } else {
+          props.onClose();
+          props.onLoginSubmit(enteredMobile, enteredPassword);
+        }
+      };
     return(
-        <div className="form">
+        <div className="form"> 
             <div className="login">
                 <div className="form-head">
                     <div className="form-logo">
@@ -11,7 +25,7 @@ const Login = (props)=>{
                         <span>Login</span>
                     </div>
                 </div>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <lable for="mobile">Mobile No.</lable>
                     <input type="text" id="mobile" maxLength={10} minLength={10}  />
                     

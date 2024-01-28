@@ -10,8 +10,8 @@ import Login from './Login';
 import Register from './Register';
 import './style/landing.css';
 
-const Landing = () => {
-  const landing = document.querySelector('.landing');
+const Landing = (props) => {
+  
   const [currentSlide, setCurrentSlide] = useState(1);
   const [loginstate, setlogin] = useState(false);
   const [registerstate, setregister] = useState(false);
@@ -129,8 +129,9 @@ const Landing = () => {
         </div>
       </div>
     </div>
-    {loginstate && <Login onClose={handleCloseForm} />}
-    {registerstate && <Register onClose={handleCloseForm} />}
+    {loginstate && <Login onClose={handleCloseForm} onLoginSubmit={props.onLoginSubmit} />}
+
+    {registerstate && <Register onClose={handleCloseForm} onRegisterSubmit={props.onRegisterSubmit} />}
     </React.Fragment>
   );
 }

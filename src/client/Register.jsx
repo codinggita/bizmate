@@ -2,6 +2,26 @@ import bizmateLogo from './assets/logoNobg.png';
 import React from "react";
 import './style/form.css';
 const Register = (props)=>{
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    
+        const newUserDetails = {
+          business_name: document.getElementById('name').value,
+          business_type: document.getElementById('type').value,
+          mobile: document.getElementById('mobile').value,
+          gstin: document.getElementById('gstin').value,
+          address: document.getElementById('add').value,
+          password: document.getElementById('pass').value
+        };
+    
+        // Check for required fields
+        if (!newUserDetails.business_name || !newUserDetails.business_type || !newUserDetails.mobile || !newUserDetails.gstin || !newUserDetails.address || !newUserDetails.password) {
+          alert('Please fill in all fields.');
+        } else {
+          props.onClose();
+          props.onRegisterSubmit(newUserDetails);
+        }
+      };
     return(
         <div className="form">
             <div className="register">
@@ -11,7 +31,7 @@ const Register = (props)=>{
                         <span>Register</span>
                     </div>
                 </div>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <lable for="name">Business Name</lable>
                     <input type="text" id="name"/>
                     
