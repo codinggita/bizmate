@@ -55,7 +55,7 @@
 }
 
 form{
-    width: 100%;
+    width: 95%;
     margin-top: 20px;
     font-size: 1.8rem;
     position: relative;
@@ -63,6 +63,7 @@ form{
     flex-direction: column;
     height: 100%;
     align-items: space-between;
+
 }
 form input{
     border: none;
