@@ -14,12 +14,10 @@ const Login = (props)=>{
                 <form>
                     <lable for="mobile">Mobile No.</lable>
                     <input type="text" id="mobile" maxLength={10} minLength={10}  />
-                    <br></br>
-                    <br></br>
+                    
                     <lable for="pass">Password</lable>
                     <input type="password" id="pass" />
-                    <br></br>
-                    <br></br>
+                    
                     <div className="but">
                         <button className="entry-button" type="submit">Let Me In</button>
                     </div>

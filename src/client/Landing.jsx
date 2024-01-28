@@ -16,7 +16,7 @@ const Landing = () => {
   const [loginstate, setlogin] = useState(false);
   const [registerstate, setregister] = useState(false);
   const [smallScreen, setSmallScreen] = useState(false);
-  
+
   
   useEffect(() => {
     const handleResize = () => {
@@ -32,7 +32,7 @@ const Landing = () => {
       document.getElementById(`s${currentSlide}`).style.display = 'none';
 
       document.getElementById(`s${nextSlide}`).style.display = 'flex';
-      landing.style.height = '100vh';
+  
       setCurrentSlide(nextSlide);
     }, 5000);
 

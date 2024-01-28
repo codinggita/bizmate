@@ -14,27 +14,25 @@ const Register = (props)=>{
                 <form>
                     <lable for="name">Business Name</lable>
                     <input type="text" id="name"/>
-                    <br></br>
-                    <br></br>
+                    
                     <lable for="type">Business Type</lable>
                     <input type="text" id="type"/>
-                    <br></br>
-                    <br></br>
+                    
                     <lable for="mobile">Mobile No.</lable>
                     <input type="text" id="mobile"  maxLength={10} minLength={10}/>
-                    <br></br>
-                    <br></br>
+                    
                     
                     <lable for="gstin">GSTIN</lable>
                     <input type="text" id="gstin"/>
-                    <br></br>
-                    <br></br>
+                    
                     <lable for="add">Address</lable>
                     <input type="text" id="add"/>
-                    <br></br>
-                    <br></br>
+
+                    <lable for="pass">New Password</lable>
+                    <input type="text" id="pass"/>
+                    
                     <div className="but">
-                        <button className="entry-button" type="submit">Deal 🤝 </button>
+                        <button className="entry-button" type="submit">Deal </button>
                     </div>
                 </form>
 
