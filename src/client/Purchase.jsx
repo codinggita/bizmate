@@ -1,11 +1,12 @@
 import React from "react";
 import './style/purchase.css';
 
+const Purchase = ()=>{
+    return (
+        <div className="purchase">
+            <h1>PURCHASE</h1>
 
-const Purchase=()=>{
-        return(
-            <div>
-            </div>
-        );
+        </div>
+    )
 }
-export default Purchase; 
+export default Purchase;

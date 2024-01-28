@@ -6,57 +6,96 @@ import slide2 from './assets/slide2.svg';
 import slide3 from './assets/slide3.svg';
 import slide4 from './assets/slide4.svg';
 import slide5 from './assets/slide5.svg';
+import Login from './Login';
+import Register from './Register';
 import './style/landing.css';
 
-const Landing = () => {
+const Landing = (props) => {
+  
   const [currentSlide, setCurrentSlide] = useState(1);
+  const [loginstate, setlogin] = useState(false);
+  const [registerstate, setregister] = useState(false);
+  const [smallScreen, setSmallScreen] = useState(false);
 
+  
   useEffect(() => {
+    const handleResize = () => {
+      setSmallScreen(window.innerWidth <= 800);
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
     const intervalId = setInterval(() => {
-      // Calculate the next slide index
       const nextSlide = (currentSlide % 5) + 1;
 
-      // Hide the current slide
-      document.getElementById(`s${currentSlide}`).classList.add('animate__bounceOutLeft');
       document.getElementById(`s${currentSlide}`).style.display = 'none';
 
-      // Show the next slide
-      document.getElementById(`s${nextSlide}`).classList.remove('animate__bounceOutLeft');
       document.getElementById(`s${nextSlide}`).style.display = 'flex';
-      // Update the current slide index
+  
       setCurrentSlide(nextSlide);
     }, 5000);
 
-    return () => clearInterval(intervalId); // Cleanup on component unmount
+    return () => {
+      clearInterval(intervalId);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [currentSlide]);
 
-  }, [currentSlide]); // Run the effect when currentSlide changes
+  useEffect(() => {
+    if (smallScreen) {
+      const leftPartDiv = document.querySelector('.left-part');
+      const rightPartDiv = document.querySelector('.right-part');
+      setTimeout(() => {
+        leftPartDiv.classList.add('animate__fadeOutUp');
+        rightPartDiv.classList.add('animate__slideInUp');
+        
+      }, 3500);
+      setTimeout(() => {
+        leftPartDiv.style.display = 'none';
+      }, 4000);
+    }
+  }, [smallScreen]);
 
+  const handleLogin = ()=>{
+    document.getElementById('welcome').style.pointerEvents = 'none';
+    setlogin(true);
+  }
+  const handleRegister = ()=>{
+    document.getElementById('welcome').style.pointerEvents = 'none';
+    setregister(true);
+  }
+  const handleCloseForm = ()=>{
+    setlogin(false);
+    setregister(false);
+    document.getElementById('welcome').style.pointerEvents = 'auto';
 
+  }
   return (
-    <div className="landing">
+    <React.Fragment>
+      <div className="landing" id="welcome">
       <div className="blurry-header-helper"></div>
       <div className="header">
         <div className="head-left">
           <div className="logo-head">
               <img src={bizmateLogo} alt="Bizmate Logo" />
-              <span>BizMate</span>
+              <span>izMate</span>
           </div>
         </div>
         <div className="head-right">
-        <button>
-          <a href="#" class="btn2"><span class="spn2">Login</span></a>
-        </button>
-    
+          <button className="entry-button" id="login" onClick={handleLogin}>
+            Login
+          </button>
         </div>
       </div>
  
       <div className="land-main">
-        <div className="left-part">
+        <div className="left-part animate__animated">
           <div className="circle-color  ">
             <img src={bizmate} className="animate__animated animate__pulse animate__infinite"/>
           </div>
         </div>
-        <div className="right-part">
+        <div className="right-part animate__animated">
           <div className="slideshow">
             <div className="slide animate__animated animate__fadeInLeft " id="s1">
               <h3>Effortless Invoicing</h3>
@@ -72,13 +111,11 @@ const Landing = () => {
               <h3>Secure Data</h3>
               <p>Your business information is always safe with us.</p>
               <img src={slide3}/>
-
             </div>
             <div className="slide animate__animated animate__fadeInDown" id="s4">
               <h3>Accessible Anywhere</h3>
               <p>Access your data from any device, anytime, anywhere.</p>
               <img src={slide4}/>
-
             </div>
             <div className="slide animate__animated animate__zoomInDown" id="s5">
               <h3>Get Started Today</h3>
@@ -86,27 +123,16 @@ const Landing = () => {
               <img src={slide5}/>
             </div>
           </div>
-          <button class="cssbuttons-io-button">
-           Get started
-          <div class="icon">
-            <svg
-              height="24"
-              width="24"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M0 0h24v24H0z" fill="none"></path>
-              <path
-                d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
-                fill="currentColor"
-              ></path>
-            </svg>
-          </div>
-        </button>
-
+          <button className="entry-button" onClick={handleRegister}>
+            Let's Get Started
+          </button>
         </div>
       </div>
     </div>
+    {loginstate && <Login onClose={handleCloseForm} onLoginSubmit={props.onLoginSubmit} />}
+
+    {registerstate && <Register onClose={handleCloseForm} onRegisterSubmit={props.onRegisterSubmit} />}
+    </React.Fragment>
   );
 }
 
