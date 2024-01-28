@@ -61,7 +61,6 @@ form{
     position: relative;
     display: flex;
     flex-direction: column;
-    /* height: 100%; */
     align-items: space-between;
 
 }
@@ -73,17 +72,17 @@ form input{
     border-bottom: 1px solid white;
     color: white;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 form lable{
-    margin-bottom: 10px;
+    /* margin-bottom: 5px; */
 }
 
 .but{
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 .but button{
     width: 200px;
@@ -183,7 +182,7 @@ transform: translateX(-56px);
         padding: 10px;
     }
     .button{
-        right: 6px;
+        right: 10px;
         top: 27px;
     }
     
