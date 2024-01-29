@@ -9,4 +9,4 @@ const Sale = ()=>{
         </div>
     )
 }
-export default Sale;
+export default Sale; 

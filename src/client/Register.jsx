@@ -6,7 +6,7 @@ const Register = (props)=>{
         e.preventDefault();
     
         const newUserDetails = {
-          business_name: document.getElementById('name').value,
+          business_name: document.getElementById('name_').value,
           business_type: document.getElementById('type').value,
           mobile: document.getElementById('mobile').value,
           gstin: document.getElementById('gstin').value,
@@ -32,8 +32,8 @@ const Register = (props)=>{
                     </div>
                 </div>
                 <form onSubmit={handleSubmit}>
-                    <lable for="name">Business Name</lable>
-                    <input type="text" id="name"/>
+                    <lable for="name_">Business Name</lable>
+                    <input type="text" id="name_"/>
                     
                     <lable for="type">Business Type</lable>
                     <input type="text" id="type"/>

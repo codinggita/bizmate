@@ -115,6 +115,7 @@
     align-items: center;
     display: none;
     overflow: hidden;
+    height: 450px;
 }
 .slide h3{
     font-size: 3rem;
