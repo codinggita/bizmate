@@ -1,0 +1,144 @@
+.inventory{
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.action-add{
+    position: absolute;
+    font-size: 1.2rem;
+    height: 40px;
+    padding: 5px;
+    top: 7px;
+    left: 10px;
+    border-radius: 10px;
+    border: 2px solid white;
+    outline: none;
+    background-color: transparent;
+    color: white;
+    transition: all 0.5s;
+}
+.action-add:hover{
+    background-color: white;
+    color: black;
+}
+.item-details{
+    width: 98%;
+    height: 100vh;
+    overflow: auto;
+    margin-top: 60px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.item{
+    margin-top: 10px;
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid white;
+    display: flex;
+    color: white;
+    font-weight: 700;
+    overflow: hidden;
+    flex-direction: row;
+}
+.left-i{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    transition: all 0.5s;
+}
+.left-i:hover{
+    background-color: rgba(0, 0, 0, 0.356);
+
+}
+.right-i{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+hr{
+    height: 70%;
+}
+#plus{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    
+}
+#minus{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+#plus:hover ,#minus:hover{
+    background-color: rgba(0, 0, 0, 0.452);
+}
+#plus svg{
+    height: 40%;
+    fill: green;
+}
+#minus svg{
+    height: 40%;
+    fill: red;
+}
+#sp{
+    color: green;
+    font-size: 1.05rem;
+    margin: 0 8px;
+}
+#cp{
+
+    margin: 0 10px;
+     font-size: 1.05rem;
+
+    color: red;
+}
+#qty{
+
+    margin: 0 10px;
+    font-size: 1.05rem;
+
+    color: white;
+}
+#loc{
+    margin: 0 10px;
+    font-size: 1.05rem;
+
+    color: white;
+}
+#name{
+    overflow: auto;
+    width: 100%;
+    font-size: 1.3rem;
+    padding-left: 10px;
+}
+@media screen and (max-width:800px){
+    .action-add{
+        position: fixed;
+        top: 7px;
+        left: 2px;
+    }
+    .item-details{
+        margin: 0;
+        width: 100%;
+        padding: 0;
+    }
+    
+}

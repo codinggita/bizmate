@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import './style/inventory.css';
-
-const Inventory = ()=>{
+import Item from "./Item";
+const Inventory = (props)=>{
+    const items = props.items;
     return (
-        <div className="inventory">
-            <h1>INVENTORY</h1>
+        <React.Fragment>
+            <div className="inventory" id="inventory">
+                <button className="action-add">
+                    Add Item
+                </button>
+                <div className="item-details">
+                    {
+                        items.map((item)=>{
+                            return(
+                                <Item item = {item} 
+                                key = {item.id}
+                                onplus ={props.onplus}
+                                onminus={props.onminus}
+                                onupdate={props.onupdate}
+                                />
+                            )
+                        })
+                    }
+                </div>
+            </div>
             
-        </div>
+        </React.Fragment>
     )
 }
 export default Inventory;

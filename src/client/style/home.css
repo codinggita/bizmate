@@ -3,7 +3,7 @@
     height: 100%;
     position: relative;
     display: flex;
-    overflow: auto;
+    overflow: hidden;
 }
 aside{
     width: 15%;
@@ -40,7 +40,7 @@ aside button{
     width: 90%;
     border: none;
     border-radius: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     font-size: 1.3rem;
     padding: 10px;
     transition: all 0.5s;
@@ -70,20 +70,22 @@ aside button svg{
 
 .home-main{
     width: 85%;
-    background-color: aliceblue;
+    background-color: #00000086;
+
 }
 .clogo{
     height: 40px;
     width: 40px;
     position: absolute;
     right: 15px;
-    top: 12px;
+    top: 5px;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
     border: 2px solid #1c4d75;
+    z-index: 10;
 }
 .clogo:hover{
     box-shadow: 0 0 15px 5px #1c4d75;
@@ -216,7 +218,24 @@ fill: #f0eeef;
 transition: 0.4s;
 transform: translateX(-56px);
 }
+.illustration{
+    width: 100%;
+    height: 130px;
+    border: none;
+}
+.ill{
+    height: 100%;
+    width: 100%;
+    display: none;
+    border: none;
+}
+#dashill{
+    display: block;
+}
 @media screen and (max-width:800px){
+    .illustration{
+        display: none;
+    }
     .backcomp
     {
         right: 38%;
@@ -227,9 +246,7 @@ transform: translateX(-56px);
     #comp{
         display: block;
     }
-    .clogo{
-        display: none;
-    }
+    
     .home-main{
         height: 84.5%;
         width: 100%;
@@ -280,17 +297,12 @@ transform: translateX(-56px);
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 50px;
+       
         
     }
     aside button svg{
-        height:65%;
-        width: 65%;
+        height:50%;
+        width: 50%;
+        padding-right: 0;
     }
-    aside button:hover{
-        background-color: transparent;
-     }
-     aside button:focus{
-         border: 1px solid white;
-     }
 }

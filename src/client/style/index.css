@@ -2,3 +2,23 @@
    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
     ;
 }
+::-webkit-scrollbar {
+    width: 10px
+  }
+  ::-webkit-scrollbar-track {
+    background:transparent; 
+  }
+::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(180deg,#252528 ,#2196f3);
+    border-radius: 50px;
+
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #e96d40;
+  }
+
+@media screen and (max-width:800px){
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
