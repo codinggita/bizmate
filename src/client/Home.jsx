@@ -5,6 +5,7 @@ import Dashboard from "./Dashboard";
 import Inventory from "./Inventory";
 import Sale from "./Sale";
 import Purchase from "./Purchase";
+import profile from './assets/profiledetails.svg'
 
 const Home = (props)=>{
      const [activeComponent, setActiveComponent] = useState('dashboard');
@@ -19,7 +20,7 @@ const Home = (props)=>{
             case 'purchase':
                 return <Purchase />;
             default:
-                return null;
+                return <Dashboard />;
         }
     };
     const handleButtonClick = (component) => {
@@ -29,6 +30,11 @@ const Home = (props)=>{
         document.querySelector('.comp-details').style.display = 'block';
         document.querySelector('.clogo').style.display = 'none';
         document.querySelector('.backcomp').style.display = 'block';
+    }
+    const handleCclose = () =>{
+        document.querySelector('.comp-details').style.display = 'none';
+        document.querySelector('.clogo').style.display = 'block';
+        document.querySelector('.backcomp').style.display = 'none';
     }
     return(
         <React.Fragment>
@@ -40,16 +46,33 @@ const Home = (props)=>{
                         <span>izMate</span>
                     </div>
                 </div>
-                <div className="comp-details">
-        
-                    <div>Company: {props.user.business_name}</div>
-                    <div>Business Type: {props.user.business_type}</div>
-                    <div>Mobile No: {props.user.mobile}</div>
-                    <div>GSTIN: {props.user.gstin}</div>
-                    <div>Address: {props.user.address}</div>
+                <div className="comp-details animate__animated animate__slideInDown">
+                    <div className="com-head">
+                        Company Details
+                    </div>
+                    <div className="felid">
+                        <div className="result">
+                            {props.user.business_name}
+                        </div>
+                        <div className="result">
+                            {props.user.business_type}
+                        </div>
+                        <div className="result">
+                            {props.user.mobile}
+                        </div>
+                        <div className="result">
+                            {props.user.gstin}
+                        </div>
+                        <div className="result">
+                            {props.user.address}
+                        </div>
+                        <div className="profile">
+                            <img src={profile} />
+                        </div>
+                    </div>
                 </div>
                 <div className="backcomp">
-                    <button class="button">
+                    <button class="button" onClick={handleCclose}>
                         <div class="button-box">
                             <span class="button-elem">
                             <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
