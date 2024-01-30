@@ -1,5 +1,5 @@
 .inventory{
-    overflow: auto;
+    overflow: hidden;
     width: 100%;
     height: 100%;
     position: relative;
@@ -23,7 +23,7 @@
     color: black;
 }
 .item-details{
-    width: 98%;
+    width: 96%;
     overflow: auto;
     margin-top: 60px;
     padding: 10px;
@@ -31,17 +31,21 @@
     flex-direction: column;
     align-items: center;
     font-size: 1.2rem;
+    background-color: #ffffff;
+    height: 85vh;
+    border-radius: 20px;
+    
 }
 .item{
     margin-top: 10px;
     width: 100%;
-    min-height: 50px;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid rgb(0, 0, 0);
     display: flex;
-    color: white;
-    font-weight: 700;
-    overflow: auto;
+    color: black;
+    font-weight: 400;
     flex-direction: row;
+    padding-bottom: 10px;
+    /* height: 50px; */
 }
 
 .left-i{
@@ -64,12 +68,7 @@
     align-items: center;
 
 }
-.partyl{
-    width: 80%;
-}
-.partyr{
-    width: 20%;
-}
+
 hr{
     height: 70%;
 }
@@ -105,20 +104,37 @@ hr{
     outline: none;
     
 }
-#plus:hover ,#minus:hover ,#delete:hover{
-    background-color: rgba(0, 0, 0, 0.452);
+#plus{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+#plus:hover ,#minus:hover, #delete:hover{
+    box-shadow: 0 0 7px 2px #1c4d75;
+}
+#minus{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+
+}
+#delete{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+
 }
 #plus svg{
-    height: 30%;
+    height: 60%;
     fill: green;
 }
 #minus svg{
-    height: 30%;
+    height: 60%;
     fill: red;
 }
 #delete svg{
-    height: 30%;
-    fill: white;
+    height: 60%;
+    fill: rgb(0, 0, 0);
 }
 #sp{
     color: green;
@@ -137,13 +153,13 @@ hr{
     margin: 0 10px;
     font-size: 1.05rem;
 
-    color: white;
+    color: rgb(0, 0, 0);
 }
 #loc{
     margin: 0 10px;
     font-size: 1.05rem;
 
-    color: white;
+    color: rgb(0, 0, 0);
 }
 #name{
     overflow: auto;

@@ -27,6 +27,120 @@ const Home = (props)=>{
                     qty:10,
                     unit:"PCs",
                     location:"A-10" 
+                },
+                {
+                    id:1,
+                    item_name : "Sample Item",
+                    item_type :"Sample Type",
+                    sale_price:30,
+                    purchase_price:10,
+                    qty:10,
+                    unit:"PCs",
+                    location:"A-10" 
+                },
+                {
+                    id:2,
+                    item_name : "Sample Item",
+                    item_type :"Sample Type",
+                    sale_price:30,
+                    purchase_price:10,
+                    qty:10,
+                    unit:"PCs",
+                    location:"A-10" 
+                }
+                ,{
+                    id:3,
+                    item_name : "Sample Item",
+                    item_type :"Sample Type",
+                    sale_price:30,
+                    purchase_price:10,
+                    qty:10,
+                    unit:"PCs",
+                    location:"A-10" 
+                },{
+                    id:4,
+                    item_name : "Sample Item",
+                    item_type :"Sample Type",
+                    sale_price:30,
+                    purchase_price:10,
+                    qty:10,
+                    unit:"PCs",
+                    location:"A-10" 
+                },
+                {
+                    id:5,
+                    item_name : "Sample Item",
+                    item_type :"Sample Type",
+                    sale_price:30,
+                    purchase_price:10,
+                    qty:10,
+                    unit:"PCs",
+                    location:"A-10" 
+                },
+                {
+                    id:6,
+                    item_name : "Sample Item",
+                    item_type :"Sample Type",
+                    sale_price:30,
+                    purchase_price:10,
+                    qty:10,
+                    unit:"PCs",
+                    location:"A-10" 
+                },
+                {
+                    id:6,
+                    item_name : "Sample Item",
+                    item_type :"Sample Type",
+                    sale_price:30,
+                    purchase_price:10,
+                    qty:10,
+                    unit:"PCs",
+                    location:"A-10" 
+                },{
+                    id:6,
+                    item_name : "Sample Item",
+                    item_type :"Sample Type",
+                    sale_price:30,
+                    purchase_price:10,
+                    qty:10,
+                    unit:"PCs",
+                    location:"A-10" 
+                },{
+                    id:6,
+                    item_name : "Sample Item",
+                    item_type :"Sample Type",
+                    sale_price:30,
+                    purchase_price:10,
+                    qty:10,
+                    unit:"PCs",
+                    location:"A-10" 
+                },{
+                    id:6,
+                    item_name : "Sample Item",
+                    item_type :"Sample Type",
+                    sale_price:30,
+                    purchase_price:10,
+                    qty:10,
+                    unit:"PCs",
+                    location:"A-10" 
+                },{
+                    id:6,
+                    item_name : "Sample Item",
+                    item_type :"Sample Type",
+                    sale_price:30,
+                    purchase_price:10,
+                    qty:10,
+                    unit:"PCs",
+                    location:"A-10" 
+                },{
+                    id:6,
+                    item_name : "Sample Item",
+                    item_type :"Sample Type",
+                    sale_price:30,
+                    purchase_price:10,
+                    qty:10,
+                    unit:"PCs",
+                    location:"A-10" 
                 }
             ],
             partys : [
