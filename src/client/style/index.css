@@ -17,8 +17,12 @@
     background: #e96d40;
   }
 
+  ::placeholder {
+    color:white; /* Set the desired color */
+}
 @media screen and (max-width:800px){
   ::-webkit-scrollbar {
     display: none;
   }
+
 }
