@@ -1,22 +1,21 @@
-import bizmateLogo from './assets/logoNobg.png';
 import React from "react";
+import bizmateLogo from './assets/logoNobg.png';
 import './style/form.css';
-const UpdateItem = (props)=>{
-    const curItem = props.cur;
+const AddIteam = (props)=>{
     const handleSubmit = (e) => {
         e.preventDefault();
-     
-        const newItem = {
-            id:curItem.id,
-            item_name: document.getElementById('namei').value || curItem.item_name,
-            item_type: document.getElementById('typei').value || curItem.item_type,
-            sale_price: document.getElementById('spi').value || curItem.sale_price,
-            purchase_price: document.getElementById('cpi').value || curItem.purchase_price,
-            qty: document.getElementById('qtyi').value || curItem.qty,
-            unit: document.getElementById('uniti').value || curItem.unit,
-            location: document.getElementById('loci').value || curItem.location,
+    
+        const newItem = { 
+            id:1,
+            item_name: document.getElementById('namei').value,
+            item_type: document.getElementById('typei').value ,
+            sale_price: document.getElementById('spi').value ,
+            purchase_price: document.getElementById('cpi').value,
+            qty: document.getElementById('qtyi').value,
+            unit: document.getElementById('uniti').value,
+            location: document.getElementById('loci').value,
           };
-          props.onupdate(newItem);
+          props.onAdd(newItem);
           props.onClose();
         
       };
@@ -26,34 +25,34 @@ const UpdateItem = (props)=>{
                 <div className="form-head">
                     <div className="form-logo">
                         <img src={bizmateLogo}/>
-                        <span>Update</span>
+                        <span>New Item</span>
                     </div>
                 </div>
                 <form id='update' onSubmit={handleSubmit}>
 
-                    <input type='text' id='namei'  placeholder={`Item : ${curItem.item_name}`}>
+                    <input type='text' id='namei'  placeholder="Item" required>
                     </input>
-                    <input type='text' id='typei' placeholder={`Type : ${curItem.item_type}`}>
+                    <input type='text' id='typei' placeholder="Type" required>
                         
                     </input>
-                    <input type='number' id='spi' placeholder={`Sale : ${curItem.sale_price}`}>
+                    <input type='number' id='spi' placeholder="Sale Price" required>
                         
                     </input>
-                    <input type='number' id='cpi' placeholder={`Purchase : ${curItem.purchase_price}`}>
+                    <input type='number' id='cpi' placeholder="Purchase Price"   required>
                         
                     </input>
-                    <input type='number' id='qtyi' placeholder={`Qty : ${curItem.qty}`}>
+                    <input type='number' id='qtyi' placeholder="Current Stock" required>
                         
                     </input>
-                    <input type='text' id='uniti' placeholder={`Unit : ${curItem.unit}`}>
+                    <input type='text' id='uniti' placeholder="Unit" required>
                         
                     </input>
-                    <input type='text' id='loci'placeholder={`Location : ${curItem.location}`}>
+                    <input type='text' id='loci'placeholder="Location" required>
                         
                     </input>
                     
                     <div className="but">
-                        <button className="entry-button" type="submit">Update</button>
+                        <button className="entry-button" type="submit">Add Item</button>
                     </div>
                 </form>
 
@@ -82,4 +81,4 @@ const UpdateItem = (props)=>{
         </div>
     );
 }
-export default UpdateItem;
+export default AddIteam;

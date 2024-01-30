@@ -3,22 +3,26 @@
     ;
 }
 ::-webkit-scrollbar {
-    width: 10px
+    width: 8px
   }
   ::-webkit-scrollbar-track {
     background:transparent; 
   }
 ::-webkit-scrollbar-thumb {
-    background-image: linear-gradient(180deg,#252528 ,#2196f3);
-    border-radius: 50px;
+   background-color: white;
+    /* border-radius: 50px; */
 
 }
 ::-webkit-scrollbar-thumb:hover {
     background: #e96d40;
   }
 
+  ::placeholder {
+    color:white; /* Set the desired color */
+}
 @media screen and (max-width:800px){
   ::-webkit-scrollbar {
     display: none;
   }
+
 }
