@@ -167,7 +167,35 @@ hr{
     font-size: 1.3rem;
     padding-left: 10px;
 }
+.empty{
+    border-radius: 20px;
+    background-color: #ffffff;
+    width: 96%;
+    height: 85vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+
+}
+.illemp{
+    height: 50%;
+    /* width: 80%; */
+}
+.illemp img{
+    width: 100%;
+    height: 100%;
+}
 @media screen and (max-width:800px){
+    .illemp{
+        width: 80%;
+        height: auto;
+    }
+    .empty{
+        margin: 0;
+        width: 100%;
+        padding: 0;
+    }
     .action-add{
         position: fixed;
         top: 7px;
@@ -179,19 +207,4 @@ hr{
         padding: 0;
     }
     
-}
-.empty{
-    width: 100%;
-    height: 100%;
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
-.illemp{
-    height: 50%;
-    width: 50%;
-}
-.illemp img{
-    width: 100%;
-    height: 100%;
 }

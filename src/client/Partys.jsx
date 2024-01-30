@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import AddParty from './AddParty';
 import './style/inventory.css';
 import Party from './Party';
-import emptyi from './assets/emptyill.svg'
+import emptyi from './assets/noParty.gif'
 const Partys = (props)=>{
     const [additem, setadd] = useState(false);
     
