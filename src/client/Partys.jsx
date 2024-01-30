@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import AddIteam from "./AddItem";
+import AddParty from './AddParty';
 import './style/inventory.css';
-import Item from "./Item";
+import Party from './Party';
 import emptyi from './assets/emptyill.svg'
-const Inventory = (props)=>{
+const Partys = (props)=>{
     const [additem, setadd] = useState(false);
     
     const handleItem = ()=>{
@@ -12,13 +12,13 @@ const Inventory = (props)=>{
     const handleCloseForm = ()=>{
         setadd(false);
     }
-    const items = props.items;
-    useEffect(() => { 
+    const items = props.partys;
+    useEffect(() => {
         // Use useEffect to conditionally show/hide elements based on props.items.length
         const emp = document.querySelector('.empty');
         const ide = document.querySelector('.item-details');
         const addi = document.getElementById('addi');
-        if (props.items.length === 0) {
+        if (props.partys.length === 0) {
             emp.style.display = 'flex';
             ide.style.display = 'none';
             addi.classList.add('animate__animated', 'animate__flash', 'animate__infinite','animate__slow');
@@ -28,22 +28,20 @@ const Inventory = (props)=>{
             ide.style.display = 'flex';
         }
         
-    }, [props.items.length]);
+    }, [props.partys.length]);
 
     return (
         <React.Fragment>
             <div className="inventory" id="inventory">
                 <button className="action-add" onClick={handleItem} id="addi">
-                    Add Item
+                    Add Party
                 </button>
                 <div className="item-details">
                     { 
                         items.map((item)=>{
                             return(
-                                <Item item = {item} 
+                                <Party item = {item} 
                                 key = {item.id}
-                                onplus ={props.onplus}
-                                onminus={props.onminus}
                                 onupdate={props.onupdate}
                                 onDelete={props.onDelete}
                                 />
@@ -58,10 +56,10 @@ const Inventory = (props)=>{
                 </div>
             </div>
             {
-                additem && <AddIteam onClose={handleCloseForm} onAdd={props.onAdd}/>
+                additem && <AddParty onClose={handleCloseForm} onAdd={props.onAdd}/>
             }
             
         </React.Fragment>
     )
 }
-export default Inventory;
+export default Partys;

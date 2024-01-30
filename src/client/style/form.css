@@ -57,7 +57,7 @@
 form{
     width: 95%;
     margin-top: 20px;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -68,7 +68,7 @@ form input{
     border: none;
     outline: none;
     background:transparent;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     border-bottom: 1px solid white;
     color: rgb(255, 255, 255);
     display: block;
@@ -76,7 +76,7 @@ form input{
 }
 
 form lable{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 .but{
     width: 100%;

@@ -1,20 +1,17 @@
 import bizmateLogo from './assets/logoNobg.png';
 import React from "react";
 import './style/form.css';
-const UpdateItem = (props)=>{
+const UpdateParty = (props)=>{
     const curItem = props.cur;
     const handleSubmit = (e) => {
         e.preventDefault();
      
         const newItem = {
             id:curItem.id,
-            item_name: document.getElementById('namei').value || curItem.item_name,
-            item_type: document.getElementById('typei').value || curItem.item_type,
-            sale_price: document.getElementById('spi').value || curItem.sale_price,
-            purchase_price: document.getElementById('cpi').value || curItem.purchase_price,
-            qty: document.getElementById('qtyi').value || curItem.qty,
-            unit: document.getElementById('uniti').value || curItem.unit,
-            location: document.getElementById('loci').value || curItem.location,
+            party_name: document.getElementById('namei').value || curItem.party_name,
+            opening_bal: document.getElementById('spi').value || curItem.opening_bal,
+            party_mobile: document.getElementById('uniti').value || curItem.party_mobile,
+            party_add: document.getElementById('loci').value || curItem.party_add,
           };
           props.onupdate(newItem);
           props.onClose();
@@ -31,24 +28,17 @@ const UpdateItem = (props)=>{
                 </div>
                 <form id='update' onSubmit={handleSubmit}>
 
-                    <input type='text' id='namei'  placeholder={`Item : ${curItem.item_name}`}>
+                    <input type='text' id='namei'  placeholder={`Item : ${curItem.party_name}`}>
                     </input>
-                    <input type='text' id='typei' placeholder={`Type : ${curItem.item_type}`}>
+                    
+                    <input type='number' id='spi' placeholder={`Sale : ${curItem.opening_bal}`}>
                         
                     </input>
-                    <input type='number' id='spi' placeholder={`Sale : ${curItem.sale_price}`}>
+                    
+                    <input type='text' id='uniti' placeholder={`Unit : ${curItem.party_mobile}`}>
                         
                     </input>
-                    <input type='number' id='cpi' placeholder={`Purchase : ${curItem.purchase_price}`}>
-                        
-                    </input>
-                    <input type='number' id='qtyi' placeholder={`Qty : ${curItem.qty}`}>
-                        
-                    </input>
-                    <input type='text' id='uniti' placeholder={`Unit : ${curItem.unit}`}>
-                        
-                    </input>
-                    <input type='text' id='loci'placeholder={`Location : ${curItem.location}`}>
+                    <input type='text' id='loci'placeholder={`Location : ${curItem.party_add}`}>
                         
                     </input>
                     
@@ -82,4 +72,4 @@ const UpdateItem = (props)=>{
         </div>
     );
 }
-export default UpdateItem;
+export default UpdateParty;

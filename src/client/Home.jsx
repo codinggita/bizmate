@@ -4,7 +4,7 @@ import './style/home.css'
 import Dashboard from "./Dashboard";
 import Inventory from "./Inventory";
 import Sale from "./Sale";
-import Party from "./Party";
+import Partys from "./Partys";
 import Purchase from "./Purchase";
 import profile from './assets/profiledetails.svg'
 import dill from './assets/dashboard.svg';
@@ -12,73 +12,46 @@ import iill from './assets/inventory.png';
 import sill from './assets/sale.svg';
 import pill from './assets/purchase.svg';
 import paill from './assets/party.svg'
-
+import ig from './assets/inventory.gif';
 const Home = (props)=>{
     //item object
     const[shop, setShop] = useState(
         {
             items : [
                 {
-                    id : 1,
-                    item_name : 'Decore Plywood 18MM 8*4',
-                    item_type : 'Plywood and Laminates',
-                    sale_price : 2000,
-                    purchase_price : 2500,
-                    qty : 50,
-                    unit : "sheet",
-                    location : "Rack 50-B"
-                },
+                    id:0,
+                    item_name : "Sample Item",
+                    item_type :"Sample Type",
+                    sale_price:30,
+                    purchase_price:10,
+                    qty:10,
+                    unit:"PCs",
+                    location:"A-10" 
+                }
+            ],
+            partys : [
                 {
-                    id : 2,
-                    item_name : 'Fevicol 50Kg',
-                    item_type : 'Adhesive',
-                    sale_price : 3000,
-                    purchase_price : 1000,
-                    qty : 10,
-                    unit :'PIC',
-                    location : "Rack 10-A"
-                },
-                {
-                    id : 3,
-                    item_name : 'Asian Paint Red 1L',
-                    item_type : 'Paints',
-                    sale_price : 156,
-                    purchase_price : 250,
-                    qty : 100,
-                    unit : 'PIC',
-                    location : "Rack 10-C"
-                },
-                {
-                    id : 4,
-                    item_name : 'Screw 19*6 CP',
-                    item_type : 'Hardware',
-                    sale_price : 10,
-                    purchase_price : 20,
-                    qty : 100,
-                    unit : 'DOZ',
-                    location : "Rack 1-A"
-                },
-                {
-                    id : 5,
-                    item_name : 'Everest Cement Sheet',
-                    item_type : 'Cement Sheet',
-                    sale_price : 400,
-                    purchase_price : 600,
-                    qty : 50,
-                    unit : "Sheet",
-                    location : "Rack 7-B"
+                    id:0,
+                    party_name : "Mr.Narayan Tripathi",
+                    opening_bal : 0,
+                    party_mobile: "9302310053",
+                    party_add : "Phagwara"
                 }
             ]
         }
     );
     const increaseStock = (item) => {
+        item.qty =  parseInt(item.qty);
         const itemIndex = shop.items.findIndex((i) => i.id === item.id);
+    
         if (itemIndex !== -1) {
           const updatedItems = [...shop.items];
+        
           updatedItems[itemIndex] = {
             ...updatedItems[itemIndex],
-            qty: updatedItems[itemIndex].qty + 1,
+            qty: updatedItems[itemIndex].qty +1,
           };
+    
           setShop({
             ...shop,
             items: updatedItems,
@@ -86,6 +59,7 @@ const Home = (props)=>{
         }
       };
       const decreaseStock = (item) => {
+        item.qty =  parseInt(item.qty);
         const itemIndex = shop.items.findIndex((i) => i.id === item.id);
     
         if (itemIndex !== -1 && shop.items[itemIndex].qty > 0) {
@@ -103,12 +77,72 @@ const Home = (props)=>{
       };
       const updateItem = (item) => {
         const itemIndex = shop.items.findIndex((i) => i.id === item.id);
-        const uitems = shop.items;
-        uitems[itemIndex] = item;
-        setShop({...shop,
-             items: uitems});
+        if(itemIndex !== -1){
+            const uitems = shop.items;
+            uitems[itemIndex] = item;
+            setShop({...shop,
+                items: uitems});
+            }
       };
-      
+      const addItem = (item) =>{
+        const uitem = shop.items;
+        const len = uitem.length;
+        if(len===0){
+            const newId = 1;
+            item.id = newId;
+            uitem.push(item);
+        }
+        else{
+            const newId = uitem[len-1].id + 1;
+            item.id = newId;
+            uitem.push(item);
+        }
+        setShop({...shop, items:uitem});
+      }
+      const deleteItem = (item)=>{
+        const itemIndex = shop.items.findIndex((i) => i.id === item.id);
+        if(itemIndex !== -1){
+            const uitems = shop.items;
+            uitems.splice(itemIndex,1);
+            setShop({...shop,
+                items: uitems});
+        }
+
+      }
+      const deleteParty = (party)=>{
+        const itemIndex = shop.partys.findIndex((i) => i.id === party.id);
+        if(itemIndex !== -1){
+            const uitems = shop.partys;
+            uitems.splice(itemIndex,1);
+            setShop({...shop,
+                partys: uitems});
+        }
+
+      }
+      const addParty = (party)=>{
+        const uparty = shop.partys;
+        const len = uparty.length;
+        if(len===0){
+            const newId = 1;
+            party.id = newId;
+            uparty.push(party);
+        }
+        else{
+            const newId = uparty[len-1].id + 1;
+            party.id = newId;
+            uparty.push(party);
+        }
+        setShop({...shop, partys:uparty});
+      }
+      const updateParty = (item) => {
+        const itemIndex = shop.items.findIndex((i) => i.id === item.id);
+        if(itemIndex !== -1){
+            const uitems = shop.partys;
+            uitems[itemIndex] = item;
+            setShop({...shop,
+                partys: uitems});
+            }
+      };
     const [activeComponent, setActiveComponent] = useState('dashboard');
     const renderActiveComponent = () => {
         switch (activeComponent) {
@@ -117,17 +151,23 @@ const Home = (props)=>{
             case 'inventory':
                 return <Inventory 
                 items = {shop.items} 
-                key={shop.items.id}
                 onplus={increaseStock}
                 onminus={decreaseStock}
                 onupdate={updateItem}
+                onAdd={addItem}
+                onDelete={deleteItem}
                 />;
             case 'sale':
                 return <Sale />;
             case 'purchase':
                 return <Purchase />;
             case 'party':
-                return <Party />;
+                return <Partys 
+                partys = {shop.partys}
+                onupdate={updateParty}
+                onAdd={addParty}
+                onDelete={deleteParty}
+                />;
             default:
                 return <Dashboard />;
         }
@@ -257,7 +297,7 @@ const Home = (props)=>{
                     </button>
                     <div className="illustration">
                         <img className="ill animate__animated animate__pulse animate__infinite" id="dashill" src={dill} />
-                        <img className="ill animate__animated animate__pulse animate__infinite" id="invenill" src={iill}/>
+                        <img className="ill" id="invenill" src={ig}/>
                         <img className="ill animate__animated animate__pulse animate__infinite" id="saleill"  src={sill}/>
                         <img className="ill animate__animated animate__pulse animate__infinite" id="purchill" src={pill}/>
                         <img className="ill animate__animated animate__pulse animate__infinite" id="paill" src={paill}/>

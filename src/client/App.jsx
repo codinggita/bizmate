@@ -20,11 +20,11 @@ function App() {
   const handleRegisterSubmit = (newUserDetails) => {
     updateUserDetails(newUserDetails);
     alert(`Welcome to Bizmate, ${newUserDetails.business_name}!`);
+    SetAllowUser(true);
   };
 
   const handleLoginSubmit = (enteredMobile, enteredPassword) => {
     if (enteredMobile === user.mobile && enteredPassword === user.password) {
-      alert(`Welcome, ${user.business_name}!`);
       SetAllowUser(true);
     } else {
       alert('Wrong credentials. Please try again.');

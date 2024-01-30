@@ -1,9 +1,9 @@
 .inventory{
-    overflow: hidden;
+    overflow: auto;
     width: 100%;
     height: 100%;
     position: relative;
-}
+} 
 .action-add{
     position: absolute;
     font-size: 1.2rem;
@@ -24,27 +24,28 @@
 }
 .item-details{
     width: 98%;
-    height: 100vh;
     overflow: auto;
     margin-top: 60px;
     padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 1.2rem;
 }
 .item{
     margin-top: 10px;
     width: 100%;
-    height: 80px;
+    min-height: 50px;
     border-bottom: 1px solid white;
     display: flex;
     color: white;
     font-weight: 700;
-    overflow: hidden;
+    overflow: auto;
     flex-direction: row;
 }
+
 .left-i{
-    width: 80%;
+    width: 70%;
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -56,19 +57,25 @@
 
 }
 .right-i{
-    width: 20%;
+    width: 30%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 
 }
+.partyl{
+    width: 80%;
+}
+.partyr{
+    width: 20%;
+}
 hr{
     height: 70%;
 }
 #plus{
     height: 100%;
-    width: 50%;
+    width: 33.33%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,7 +86,7 @@ hr{
 }
 #minus{
     height: 100%;
-    width: 50%;
+    width: 33.33%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,16 +94,31 @@ hr{
     border: none;
     outline: none;
 }
-#plus:hover ,#minus:hover{
+#delete{
+    height: 100%;
+    width: 33.33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    
+}
+#plus:hover ,#minus:hover ,#delete:hover{
     background-color: rgba(0, 0, 0, 0.452);
 }
 #plus svg{
-    height: 40%;
+    height: 30%;
     fill: green;
 }
 #minus svg{
-    height: 40%;
+    height: 30%;
     fill: red;
+}
+#delete svg{
+    height: 30%;
+    fill: white;
 }
 #sp{
     color: green;
@@ -141,4 +163,19 @@ hr{
         padding: 0;
     }
     
+}
+.empty{
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.illemp{
+    height: 50%;
+    width: 50%;
+}
+.illemp img{
+    width: 100%;
+    height: 100%;
 }
