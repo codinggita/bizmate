@@ -219,7 +219,8 @@ hr{
         padding-top: 10px;
     }
     .item{
-        height: 70px;
+        height: 80px;
         width: 94%;
+        overflow: auto;
     }
 }
