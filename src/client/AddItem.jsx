@@ -29,25 +29,30 @@ const AddIteam = (props)=>{
                     </div>
                 </div>
                 <form id='update' onSubmit={handleSubmit}>
+                    <lable>Item Name</lable>
+                    <input type='text' id='namei' required></input>
 
-                    <input type='text' id='namei'  placeholder="Item" required>
+                    <lable>Item Type</lable>
+                    <input type='text' id='typei' required></input>
+
+                    <lable>Sale Price</lable>
+                    <input type='number' id='spi' required>
                     </input>
-                    <input type='text' id='typei' placeholder="Type" required>
+
+                    <lable>Purchase Price</lable>
+                    <input type='number' id='cpi' required>
                         
                     </input>
-                    <input type='number' id='spi' placeholder="Sale Price" required>
+                    <lable>Current Stock</lable>
+                    <input type='number' id='qtyi'  required>
                         
                     </input>
-                    <input type='number' id='cpi' placeholder="Purchase Price"   required>
+                    <lable>Measuring Unit</lable>
+                    <input type='text' id='uniti' required>
                         
                     </input>
-                    <input type='number' id='qtyi' placeholder="Current Stock" required>
-                        
-                    </input>
-                    <input type='text' id='uniti' placeholder="Unit" required>
-                        
-                    </input>
-                    <input type='text' id='loci'placeholder="Location" required>
+                    <lable>Item Location</lable>
+                    <input type='text' id='loci'required>
                         
                     </input>
                     

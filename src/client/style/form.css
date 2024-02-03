@@ -7,10 +7,11 @@
     top: 0;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    background-color: rgba(0, 0, 0, 0.475);
+    background-color: rgba(0, 0, 0, 0.709);
     -webkit-mask-image: linear-gradient(black 61px, transparent 5000%);
     display: flex;
     justify-content: center;
+    overflow: auto;
     align-items: center;
 }
 
@@ -41,14 +42,14 @@
     justify-content: center;
 }
 .form-logo{
-    height: 100%;
+    height: 75%;
     display: flex;
 }
 .form-head img{
     height: 100%;
 }
 .form-head span{
-    font-size: 2rem;
+    font-size: 1.7rem;
     height: 100%;
     display: inline-block;
     padding-top: 5px;
@@ -56,36 +57,48 @@
 
 form{
     width: 95%;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     font-size: 1.5rem;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: space-between;
-
+    
 }
 form input{
     border: none;
     outline: none;
     background:transparent;
-    font-size: 1.5rem;
-    border-bottom: 1px solid white;
+    font-size: 1rem;
+    border: 1px solid white;
     color: rgb(255, 255, 255);
     display: block;
     margin-bottom: 15px;
+    /* border-left: 1px solid white; */
+    border-radius: 5px;
+    height: 40px;
+    padding-left: 10px;
 }
 
 form lable{
-    font-size: 1.3rem;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    position: relative;
+    /* top: 10px; */
+    /* width: 150px; */
+
 }
 .but{
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .but button{
     width: 200px;
+    font-size: 1.2rem;
+    height: 40px;
 }
 /* /exit button  */
 .button {
@@ -113,13 +126,13 @@ inset: 7px;
 }
 
 .button:before {
-border: 4px solid white;
+border: 2px solid white;
 transition: opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1) 80ms,
     transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 80ms;
 }
 
 .button:after {
-border: 4px solid white;
+border: 3px solid white;
 transform: scale(1.3);
 transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
     transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -187,10 +200,11 @@ transform: translateX(-56px);
     }
     
     form lable{
-        font-size: 1rem;
+        font-size: 0.8rem;
+        /* top:7px; */
     }
     form input{
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
     
 }

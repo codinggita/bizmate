@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import AddIteam from "./AddItem";
 import './style/inventory.css';
 import Item from "./Item";
-import emptyi from './assets/emptyill.gif'
+import emptyi from './assets/emptyill.svg'
 const Inventory = (props)=>{
     const [additem, setadd] = useState(false);
     

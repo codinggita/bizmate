@@ -6,8 +6,8 @@
 } 
 .action-add{
     position: absolute;
-    font-size: 1.2rem;
-    height: 40px;
+    font-size: 1rem;
+    height: 35px;
     padding: 5px;
     top: 7px;
     left: 10px;
@@ -23,7 +23,7 @@
     color: black;
 }
 .item-details{
-    width: 96%;
+    width: 98%;
     overflow: auto;
     margin-top: 60px;
     padding: 10px;
@@ -31,37 +31,37 @@
     flex-direction: column;
     align-items: center;
     font-size: 1.2rem;
-    background-color: #ffffff;
-    height: 85vh;
-    border-radius: 20px;
+    background-color: #1d78b0c0;
+    height: 90vh;
+    border-radius: 15px 0 0 0;
     
 }
+
 .item{
-    margin-top: 10px;
-    width: 100%;
-    border-bottom: 1px solid rgb(0, 0, 0);
+    box-shadow: 0 0px 5px 5px rgba(0, 0, 0, 0.154);
+    margin-bottom: 10px;
+    height: 60px;
+    width: 99%;
     display: flex;
     color: black;
     font-weight: 400;
     flex-direction: row;
-    padding-bottom: 10px;
-    /* height: 50px; */
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 5px;
 }
 
 .left-i{
-    width: 70%;
+    width: 92%;
     height: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     transition: all 0.5s;
 }
-.left-i:hover{
-    background-color: rgba(0, 0, 0, 0.356);
 
-}
 .right-i{
-    width: 30%;
+    width: 8%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -137,39 +137,48 @@ hr{
     fill: rgb(0, 0, 0);
 }
 #sp{
-    color: green;
-    font-size: 1.05rem;
+    color: black;
+    font-size: 0.9rem;
     margin: 0 8px;
+    width: 70px;
 }
 #cp{
 
     margin: 0 10px;
-     font-size: 1.05rem;
+    font-size: 0.9rem;
+    width: 100px;
 
-    color: red;
+
+    color: black;
 }
 #qty{
 
     margin: 0 10px;
-    font-size: 1.05rem;
-
+    font-size: 0.9rem;
+    width: 80px;
     color: rgb(0, 0, 0);
 }
 #loc{
     margin: 0 10px;
-    font-size: 1.05rem;
-
-    color: rgb(0, 0, 0);
+    font-size: 0.8rem;
+    
+    color: gray
 }
 #name{
     overflow: auto;
     width: 100%;
     font-size: 1.3rem;
     padding-left: 10px;
+    width: 100%;
+}
+#title{
+    font-size: 0.8rem;
+    color: gray;
 }
 .empty{
     border-radius: 20px;
-    background-color: #ffffff;
+    /* background-color: #1d78b0c0; */
+    margin-left: 20px;
     width: 96%;
     height: 85vh;
     display: none;
@@ -199,12 +208,18 @@ hr{
     .action-add{
         position: fixed;
         top: 7px;
-        left: 2px;
+        left: 7px;
     }
     .item-details{
+
         margin: 0;
         width: 100%;
         padding: 0;
+        border-radius: 0%;
+        padding-top: 10px;
     }
-    
+    .item{
+        height: 70px;
+        width: 94%;
+    }
 }

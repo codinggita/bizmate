@@ -69,7 +69,7 @@ aside button svg{
 }
 
 .home-main{
-    width: 85%;
+    width: 87%;
     background-color: #00000065;
 
 }
@@ -248,7 +248,7 @@ transform: translateX(-56px);
     }
     
     .home-main{
-        height: 84.5%;
+        height: 86.08%;
         width: 100%;
     }
     .home{
@@ -257,7 +257,7 @@ transform: translateX(-56px);
     }
     .extra-logo{
         width: 100%;
-        height: 7%;
+        height: 5.5%;
         display: flex;
         justify-content: space-between;
         margin-bottom: 10px;
