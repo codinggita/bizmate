@@ -8,7 +8,6 @@ import Partys from "./Partys";
 import Purchase from "./Purchase";
 import profile from './assets/profiledetails.svg'
 import dill from './assets/dashboard.svg';
-import iill from './assets/inventory.png';
 import sill from './assets/sale.svg';
 import pill from './assets/purchase.svg';
 import paill from './assets/party.svg'
@@ -20,6 +19,87 @@ const Home = (props)=>{
             items : [
                 {
                     id:0,
+                    item_name : "Sample Item",
+                    item_type :"Sample Type",
+                    sale_price:30,
+                    purchase_price:10,
+                    qty:10,
+                    unit:"PCs",
+                    location:"A-10" 
+                },{
+                    id:1,
+                    item_name : "Sample Item",
+                    item_type :"Sample Type",
+                    sale_price:30,
+                    purchase_price:10,
+                    qty:10,
+                    unit:"PCs",
+                    location:"A-10" 
+                },{
+                    id:2,
+                    item_name : "Sample Item",
+                    item_type :"Sample Type",
+                    sale_price:30,
+                    purchase_price:10,
+                    qty:10,
+                    unit:"PCs",
+                    location:"A-10" 
+                },{
+                    id:3,
+                    item_name : "Sample Item",
+                    item_type :"Sample Type",
+                    sale_price:30,
+                    purchase_price:10,
+                    qty:10,
+                    unit:"PCs",
+                    location:"A-10" 
+                },{
+                    id:4,
+                    item_name : "Sample Item",
+                    item_type :"Sample Type",
+                    sale_price:30,
+                    purchase_price:10,
+                    qty:10,
+                    unit:"PCs",
+                    location:"A-10" 
+                },{
+                    id:5,
+                    item_name : "Sample Item",
+                    item_type :"Sample Type",
+                    sale_price:30,
+                    purchase_price:10,
+                    qty:10,
+                    unit:"PCs",
+                    location:"A-10" 
+                },{
+                    id:6,
+                    item_name : "Sample Item",
+                    item_type :"Sample Type",
+                    sale_price:30,
+                    purchase_price:10,
+                    qty:10,
+                    unit:"PCs",
+                    location:"A-10" 
+                },{
+                    id:7,
+                    item_name : "Sample Item",
+                    item_type :"Sample Type",
+                    sale_price:30,
+                    purchase_price:10,
+                    qty:10,
+                    unit:"PCs",
+                    location:"A-10" 
+                },{
+                    id:8,
+                    item_name : "Sample Item",
+                    item_type :"Sample Type",
+                    sale_price:30,
+                    purchase_price:10,
+                    qty:10,
+                    unit:"PCs",
+                    location:"A-10" 
+                },{
+                    id:9,
                     item_name : "Sample Item",
                     item_type :"Sample Type",
                     sale_price:30,
@@ -42,8 +122,9 @@ const Home = (props)=>{
                 {
                     id:0,
                     party_id:0,
-                    date: new Date(2024,1,2,12,30),//feb 2,2024,12:30pm,
+                    date: new Date(),
                     total:0,
+                    balance:0,
                     item:[]
                 }
             ],
@@ -58,6 +139,7 @@ const Home = (props)=>{
             ]
         }
     );
+
     const increaseStock = (item) => {
         item.qty =  parseInt(item.qty);
         const itemIndex = shop.items.findIndex((i) => i.id === item.id);
@@ -176,7 +258,11 @@ const Home = (props)=>{
                 onDelete={deleteItem}
                 />;
             case 'sale':
-                return <Sale />;
+                return <Sale 
+                items = {shop.items}
+                partys = {shop.partys}
+                sale = {shop.sale}
+                />;
             case 'purchase':
                 return <Purchase />;
             case 'party':
@@ -236,7 +322,7 @@ const Home = (props)=>{
                 <div className="extra-logo">
                     <div className="home-logo">
                         <img src={logo}/>
-                        <span>izmae</span>
+                        <span>izmate</span>
                     </div>
                 </div>
                 <div className="comp-details animate__animated animate__slideInDown">
@@ -260,7 +346,7 @@ const Home = (props)=>{
                             {props.user.address}
                         </div>
                         <div className="profile">
-                            <img src={profile} className="animate__animated animate__fadeIn animate__delay-1s"/>
+                            <img src={profile} className="animate__animated animate__fadeIn "/>
                         </div>
                     </div>
                 </div>

@@ -101,7 +101,11 @@ aside button svg{
 .comp-details{
     height: 100vh;
     box-sizing: border-box;
-    background-image: linear-gradient(180deg,#252528 ,#2196f3);
+    /* background-image: linear-gradient(180deg,#252528 ,#2196f3); */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    background-color: rgba(0, 0, 0, 0.527);
+    -webkit-mask-image: linear-gradient(black 61px, transparent 5000%);
     width: 25%;
     position: absolute;
     right :0;

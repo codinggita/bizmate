@@ -38,7 +38,13 @@ const Party = (props)=>{
                     <div id="qty">
                         <span id="title">Contact</span>
                         <br></br>
-                        {item.qty} {item.party_mobile}</div>
+                        {item.qty} {item.party_mobile}
+                    </div>
+                    <div id="locd">
+                        <span id="title">Address</span>
+                        <br></br>
+                        {item.party_add}
+                    </div>
                 </div> 
                 <div className="right-i partyr">
     

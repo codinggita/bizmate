@@ -36,7 +36,8 @@ const Inventory = (props)=>{
                 <button className="action-add" onClick={handleItem} id="addi">
                     Add Item
                 </button>
-                <div className="item-details">
+                <div className="ip">
+                    <div className="item-details">
                     { 
                         items.map((item)=>{
                             return(
@@ -50,12 +51,14 @@ const Inventory = (props)=>{
                             )
                         })
                     }
-                </div>
-                <div className="empty">
-                    <div className="illemp">
-                        <img src={emptyi}/>
+                    </div>
+                    <div className="empty">
+                        <div className="illemp">
+                            <img src={emptyi}/>
+                        </div>
                     </div>
                 </div>
+                
             </div>
             {
                 additem && <AddIteam onClose={handleCloseForm} onAdd={props.onAdd}/>

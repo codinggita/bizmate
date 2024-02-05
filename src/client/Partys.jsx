@@ -36,24 +36,27 @@ const Partys = (props)=>{
                 <button className="action-add" onClick={handleItem} id="addi">
                     Add Party
                 </button>
-                <div className="item-details">
-                    { 
-                        items.map((item)=>{
-                            return(
-                                <Party item = {item} 
-                                key = {item.id}
-                                onupdate={props.onupdate}
-                                onDelete={props.onDelete}
-                                />
-                            )
-                        })
-                    }
-                </div>
-                <div className="empty">
-                    <div className="illemp">
-                        <img src={emptyi}/>
+                <div className="ip">
+                    <div className="item-details">
+                        { 
+                            items.map((item)=>{
+                                return(
+                                    <Party item = {item} 
+                                    key = {item.id}
+                                    onupdate={props.onupdate}
+                                    onDelete={props.onDelete}
+                                    />
+                                )
+                            })
+                        }
+                    </div>
+                    <div className="empty">
+                        <div className="illemp">
+                            <img src={emptyi}/>
+                        </div>
                     </div>
                 </div>
+                
             </div>
             {
                 additem && <AddParty onClose={handleCloseForm} onAdd={props.onAdd}/>
