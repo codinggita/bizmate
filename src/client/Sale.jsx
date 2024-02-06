@@ -14,21 +14,24 @@ const Sale = (props)=>{
     return (
         <React.Fragment>
             {!addsale && <div className="sale">
-                <div className="sale-detail">
-                    <button className="add-sale" onClick={handleSale}>
-                        Add New Sale
-                    </button>
-                    {
-                        invoice.map((invo)=>{
-                            return (
-                                <Invoice 
-                                item = {props.items}
-                                party = {props.partys}
-                                sale = {invo}
-                                />
-                            )
-                        })
-                    }
+                <div className="ip">
+                    <div className="sale-detail">
+                        <button className="add-sale" onClick={handleSale}>
+                            Add New Sale
+                        </button>
+                        {
+                            invoice.map((invo)=>{
+                                return (
+                                    <Invoice 
+                                    key={invo.id}
+                                    item = {props.items}
+                                    party = {props.partys}
+                                    sale = {invo}
+                                    />
+                                )
+                            })
+                        }
+                    </div>
                 </div>
             </div>}
             {
@@ -36,7 +39,9 @@ const Sale = (props)=>{
                  onClose={handleCloseForm} 
                  item = {props.items}
                  party = {props.partys}
-                 sale = {props.sale}/>
+                 sale = {props.sale}
+                 addSale = {props.addSale}/>
+                 
             }
             
         </React.Fragment>

@@ -21,90 +21,9 @@ const Home = (props)=>{
                     id:0,
                     item_name : "Sample Item",
                     item_type :"Sample Type",
-                    sale_price:30,
-                    purchase_price:10,
-                    qty:10,
-                    unit:"PCs",
-                    location:"A-10" 
-                },{
-                    id:1,
-                    item_name : "Sample Item",
-                    item_type :"Sample Type",
-                    sale_price:30,
-                    purchase_price:10,
-                    qty:10,
-                    unit:"PCs",
-                    location:"A-10" 
-                },{
-                    id:2,
-                    item_name : "Sample Item",
-                    item_type :"Sample Type",
-                    sale_price:30,
-                    purchase_price:10,
-                    qty:10,
-                    unit:"PCs",
-                    location:"A-10" 
-                },{
-                    id:3,
-                    item_name : "Sample Item",
-                    item_type :"Sample Type",
-                    sale_price:30,
-                    purchase_price:10,
-                    qty:10,
-                    unit:"PCs",
-                    location:"A-10" 
-                },{
-                    id:4,
-                    item_name : "Sample Item",
-                    item_type :"Sample Type",
-                    sale_price:30,
-                    purchase_price:10,
-                    qty:10,
-                    unit:"PCs",
-                    location:"A-10" 
-                },{
-                    id:5,
-                    item_name : "Sample Item",
-                    item_type :"Sample Type",
-                    sale_price:30,
-                    purchase_price:10,
-                    qty:10,
-                    unit:"PCs",
-                    location:"A-10" 
-                },{
-                    id:6,
-                    item_name : "Sample Item",
-                    item_type :"Sample Type",
-                    sale_price:30,
-                    purchase_price:10,
-                    qty:10,
-                    unit:"PCs",
-                    location:"A-10" 
-                },{
-                    id:7,
-                    item_name : "Sample Item",
-                    item_type :"Sample Type",
-                    sale_price:30,
-                    purchase_price:10,
-                    qty:10,
-                    unit:"PCs",
-                    location:"A-10" 
-                },{
-                    id:8,
-                    item_name : "Sample Item",
-                    item_type :"Sample Type",
-                    sale_price:30,
-                    purchase_price:10,
-                    qty:10,
-                    unit:"PCs",
-                    location:"A-10" 
-                },{
-                    id:9,
-                    item_name : "Sample Item",
-                    item_type :"Sample Type",
-                    sale_price:30,
-                    purchase_price:10,
-                    qty:10,
+                    sale_price:0,
+                    purchase_price:0,
+                    qty:0,
                     unit:"PCs",
                     location:"A-10" 
                 }
@@ -119,27 +38,73 @@ const Home = (props)=>{
                 }
             ],
             sale:[
-                {
-                    id:0,
-                    party_id:0,
-                    date: new Date(),
-                    total:0,
-                    balance:0,
-                    item:[]
-                }
+                
             ],
             purchase:[
-                {
-                    id:0,
-                    party_id:0,
-                    date: new Date(2024,1,2,12,30),
-                    totla:0,
-                    item:[]
-                }
+                
             ]
         }
     );
-
+    const AddSale = (sale)=>{
+        const newI = shop.items;
+        sale.item.map(item => {
+            const ii = shop.items.findIndex((i)=>i.id===item.iid);
+            newI[ii].qty = parseInt(newI[ii].qty) - parseInt(item.iqty);
+            newI[ii].sale_price = item.irate;
+            
+        })
+        setShop({...shop,items:newI});
+        const pi = shop.partys.findIndex((p) => p.id === sale.party_id);
+        if(pi !== -1){
+            const uitems = shop.partys;
+            uitems[pi].opening_bal = uitems[pi].opening_bal + sale.balance;
+            setShop({...shop,
+                partys: uitems});
+        }
+        const usale = shop.sale;
+        const len = usale.length;
+        if(len===0){
+            const newId = 1;
+            sale.id = newId;
+            usale.push(sale);
+        }
+        else{
+            const newId = usale[len-1].id + 1;
+            sale.id = newId;
+            usale.push(sale);
+        }
+        setShop({...shop, sale:usale});
+    }
+    const AddPur = (sale)=>{
+        const newI = shop.items;
+        sale.item.map(item => {
+            const ii = shop.items.findIndex((i)=>i.id===item.iid);
+            newI[ii].qty = parseInt(newI[ii].qty) + parseInt(item.iqty);
+            newI[ii].purchase_price = item.irate;
+            
+        })
+        setShop({...shop,items:newI});
+        const pi = shop.partys.findIndex((p) => p.id === sale.party_id);
+        if(pi !== -1){
+            const uitems = shop.partys;
+            uitems[pi].opening_bal = uitems[pi].opening_bal - sale.balance;
+            setShop({...shop,
+                partys: uitems});
+        }
+        const usale = shop.purchase;
+        const len = usale.length;
+        if(len===0){
+            const newId = 1;
+            sale.id = newId;
+            usale.push(sale);
+        }
+        else{
+            const newId = usale[len-1].id + 1;
+            sale.id = newId;
+            usale.push(sale);
+        }
+        setShop({...shop, purchase:usale});
+    }
     const increaseStock = (item) => {
         item.qty =  parseInt(item.qty);
         const itemIndex = shop.items.findIndex((i) => i.id === item.id);
@@ -235,7 +200,7 @@ const Home = (props)=>{
         setShop({...shop, partys:uparty});
       }
       const updateParty = (item) => {
-        const itemIndex = shop.items.findIndex((i) => i.id === item.id);
+        const itemIndex = shop.partys.findIndex((i) => i.id === item.id);
         if(itemIndex !== -1){
             const uitems = shop.partys;
             uitems[itemIndex] = item;
@@ -262,9 +227,15 @@ const Home = (props)=>{
                 items = {shop.items}
                 partys = {shop.partys}
                 sale = {shop.sale}
+                addSale = {AddSale}
                 />;
             case 'purchase':
-                return <Purchase />;
+                return <Purchase 
+                items = {shop.items}
+                partys = {shop.partys}
+                sale = {shop.purchase}
+                addSale = {AddPur}
+                />;
             case 'party':
                 return <Partys 
                 partys = {shop.partys}
