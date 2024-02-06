@@ -8,6 +8,7 @@ const Sale = (props)=>{
         setadd(true); 
       }
     const handleCloseForm = ()=>{
+
         setadd(false);
     }
     const invoice = props.sale;

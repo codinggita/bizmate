@@ -9,8 +9,8 @@ const AddSale = (props)=>{
   const [partyNameInput, setPartyNameInput] = useState('');
   const [party,setParty] = useState(null);
   const [t,sett] = useState(0);
-  const [clickCount, setClickCount] = useState(1);
-  const [currI , setCurr] = useState({});
+  const [clickCount, setClickCount] = useState(0);
+  const [currI , setCurr] = useState(null);
   const [itemlist,setItemList] = useState([]);
   const [paid ,setPaid] = useState(0);
   const paying = ()=>{
@@ -34,7 +34,9 @@ const AddSale = (props)=>{
   };
 
   const onAddI = ()=>{
-    sett(pre=>pre+parseInt(currI.itotal));
+    if(currI!==null){
+      sett(pre=>pre+parseInt(currI.itotal));
+    }
 
     setClickCount((prevCount) => prevCount + 1);
     if(currI!==null){
@@ -60,7 +62,7 @@ const AddSale = (props)=>{
   
     return (
         <React.Fragment>
-          <button class="button" id="can" onClick={props.onClose}>
+          <button class="button" id="can" onClick={props.onClose}>  
           <div class="button-box">
               <span class="button-elem">
               <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
