@@ -27,17 +27,19 @@ const AddParty = (props)=>{
                 </div>
                 <form id='update' onSubmit={handleSubmit}>
 
-                    <input type='text' id='namei'  placeholder="Party Name" required>
+                    <lable>Party Name</lable>
+                    <input type='text' id='namei' required>
                     </input>
-                    
-                    <input type='number' id='spi' placeholder="Opening Balance" required>
+                    <lable>Opening Balance</lable>
+                    <input type='number' id='spi' required>
                         
                     </input>
-                    
-                    <input type='text' id='uniti' placeholder="Contact No." required>
+                    <lable>Contact Number</lable>
+                    <input type='text' id='uniti' required>
                         
                     </input>
-                    <input type='text' id='loci'placeholder="Address" required>
+                    <lable>Address</lable>
+                    <input type='text' id='loci' required>
                         
                     </input>
                     

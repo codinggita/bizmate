@@ -8,7 +8,6 @@ import Partys from "./Partys";
 import Purchase from "./Purchase";
 import profile from './assets/profiledetails.svg'
 import dill from './assets/dashboard.svg';
-import iill from './assets/inventory.png';
 import sill from './assets/sale.svg';
 import pill from './assets/purchase.svg';
 import paill from './assets/party.svg'
@@ -22,123 +21,9 @@ const Home = (props)=>{
                     id:0,
                     item_name : "Sample Item",
                     item_type :"Sample Type",
-                    sale_price:30,
-                    purchase_price:10,
-                    qty:10,
-                    unit:"PCs",
-                    location:"A-10" 
-                },
-                {
-                    id:1,
-                    item_name : "Sample Item",
-                    item_type :"Sample Type",
-                    sale_price:30,
-                    purchase_price:10,
-                    qty:10,
-                    unit:"PCs",
-                    location:"A-10" 
-                },
-                {
-                    id:2,
-                    item_name : "Sample Item",
-                    item_type :"Sample Type",
-                    sale_price:30,
-                    purchase_price:10,
-                    qty:10,
-                    unit:"PCs",
-                    location:"A-10" 
-                }
-                ,{
-                    id:3,
-                    item_name : "Sample Item",
-                    item_type :"Sample Type",
-                    sale_price:30,
-                    purchase_price:10,
-                    qty:10,
-                    unit:"PCs",
-                    location:"A-10" 
-                },{
-                    id:4,
-                    item_name : "Sample Item",
-                    item_type :"Sample Type",
-                    sale_price:30,
-                    purchase_price:10,
-                    qty:10,
-                    unit:"PCs",
-                    location:"A-10" 
-                },
-                {
-                    id:5,
-                    item_name : "Sample Item",
-                    item_type :"Sample Type",
-                    sale_price:30,
-                    purchase_price:10,
-                    qty:10,
-                    unit:"PCs",
-                    location:"A-10" 
-                },
-                {
-                    id:6,
-                    item_name : "Sample Item",
-                    item_type :"Sample Type",
-                    sale_price:30,
-                    purchase_price:10,
-                    qty:10,
-                    unit:"PCs",
-                    location:"A-10" 
-                },
-                {
-                    id:6,
-                    item_name : "Sample Item",
-                    item_type :"Sample Type",
-                    sale_price:30,
-                    purchase_price:10,
-                    qty:10,
-                    unit:"PCs",
-                    location:"A-10" 
-                },{
-                    id:6,
-                    item_name : "Sample Item",
-                    item_type :"Sample Type",
-                    sale_price:30,
-                    purchase_price:10,
-                    qty:10,
-                    unit:"PCs",
-                    location:"A-10" 
-                },{
-                    id:6,
-                    item_name : "Sample Item",
-                    item_type :"Sample Type",
-                    sale_price:30,
-                    purchase_price:10,
-                    qty:10,
-                    unit:"PCs",
-                    location:"A-10" 
-                },{
-                    id:6,
-                    item_name : "Sample Item",
-                    item_type :"Sample Type",
-                    sale_price:30,
-                    purchase_price:10,
-                    qty:10,
-                    unit:"PCs",
-                    location:"A-10" 
-                },{
-                    id:6,
-                    item_name : "Sample Item",
-                    item_type :"Sample Type",
-                    sale_price:30,
-                    purchase_price:10,
-                    qty:10,
-                    unit:"PCs",
-                    location:"A-10" 
-                },{
-                    id:6,
-                    item_name : "Sample Item",
-                    item_type :"Sample Type",
-                    sale_price:30,
-                    purchase_price:10,
-                    qty:10,
+                    sale_price:0,
+                    purchase_price:0,
+                    qty:0,
                     unit:"PCs",
                     location:"A-10" 
                 }
@@ -151,9 +36,75 @@ const Home = (props)=>{
                     party_mobile: "9302310053",
                     party_add : "Phagwara"
                 }
+            ],
+            sale:[
+                
+            ],
+            purchase:[
+                
             ]
         }
     );
+    const AddSale = (sale)=>{
+        const newI = shop.items;
+        sale.item.map(item => {
+            const ii = shop.items.findIndex((i)=>i.id===item.iid);
+            newI[ii].qty = parseInt(newI[ii].qty) - parseInt(item.iqty);
+            newI[ii].sale_price = item.irate;
+            
+        })
+        setShop({...shop,items:newI});
+        const pi = shop.partys.findIndex((p) => p.id === sale.party_id);
+        if(pi !== -1){
+            const uitems = shop.partys;
+            uitems[pi].opening_bal = uitems[pi].opening_bal + sale.balance;
+            setShop({...shop,
+                partys: uitems});
+        }
+        const usale = shop.sale;
+        const len = usale.length;
+        if(len===0){
+            const newId = 1;
+            sale.id = newId;
+            usale.push(sale);
+        }
+        else{
+            const newId = usale[len-1].id + 1;
+            sale.id = newId;
+            usale.push(sale);
+        }
+        setShop({...shop, sale:usale});
+    }
+    const AddPur = (sale)=>{
+        const newI = shop.items;
+        sale.item.map(item => {
+            const ii = shop.items.findIndex((i)=>i.id===item.iid);
+            newI[ii].qty = parseInt(newI[ii].qty) + parseInt(item.iqty);
+            newI[ii].purchase_price = item.irate;
+            
+        })
+        setShop({...shop,items:newI});
+        const pi = shop.partys.findIndex((p) => p.id === sale.party_id);
+        if(pi !== -1){
+            const uitems = shop.partys;
+            uitems[pi].opening_bal = uitems[pi].opening_bal - sale.balance;
+            setShop({...shop,
+                partys: uitems});
+        }
+        const usale = shop.purchase;
+        const len = usale.length;
+        if(len===0){
+            const newId = 1;
+            sale.id = newId;
+            usale.push(sale);
+        }
+        else{
+            const newId = usale[len-1].id + 1;
+            sale.id = newId;
+            usale.push(sale);
+        }
+        setShop({...shop, purchase:usale});
+    }
     const increaseStock = (item) => {
         item.qty =  parseInt(item.qty);
         const itemIndex = shop.items.findIndex((i) => i.id === item.id);
@@ -249,7 +200,7 @@ const Home = (props)=>{
         setShop({...shop, partys:uparty});
       }
       const updateParty = (item) => {
-        const itemIndex = shop.items.findIndex((i) => i.id === item.id);
+        const itemIndex = shop.partys.findIndex((i) => i.id === item.id);
         if(itemIndex !== -1){
             const uitems = shop.partys;
             uitems[itemIndex] = item;
@@ -272,9 +223,19 @@ const Home = (props)=>{
                 onDelete={deleteItem}
                 />;
             case 'sale':
-                return <Sale />;
+                return <Sale 
+                items = {shop.items}
+                partys = {shop.partys}
+                sale = {shop.sale}
+                addSale = {AddSale}
+                />;
             case 'purchase':
-                return <Purchase />;
+                return <Purchase 
+                items = {shop.items}
+                partys = {shop.partys}
+                sale = {shop.purchase}
+                addSale = {AddPur}
+                />;
             case 'party':
                 return <Partys 
                 partys = {shop.partys}
@@ -332,7 +293,7 @@ const Home = (props)=>{
                 <div className="extra-logo">
                     <div className="home-logo">
                         <img src={logo}/>
-                        <span>izMate</span>
+                        <span>izmate</span>
                     </div>
                 </div>
                 <div className="comp-details animate__animated animate__slideInDown">
@@ -356,7 +317,7 @@ const Home = (props)=>{
                             {props.user.address}
                         </div>
                         <div className="profile">
-                            <img src={profile} className="animate__animated animate__fadeIn animate__delay-1s"/>
+                            <img src={profile} className="animate__animated animate__fadeIn "/>
                         </div>
                     </div>
                 </div>
@@ -399,7 +360,7 @@ const Home = (props)=>{
                     </button>
                     <button onClick={() => handleButtonClick('party')}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
-                        <span>Party</span>
+                        <span>Parties</span>
                     </button>
                     <button onClick={() => handleButtonClick('sale')}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M253.3 35.1c6.1-11.8 1.5-26.3-10.2-32.4s-26.3-1.5-32.4 10.2L117.6 192H32c-17.7 0-32 14.3-32 32s14.3 32 32 32L83.9 463.5C91 492 116.6 512 146 512H430c29.4 0 55-20 62.1-48.5L544 256c17.7 0 32-14.3 32-32s-14.3-32-32-32H458.4L365.3 12.9C359.2 1.2 344.7-3.4 332.9 2.7s-16.3 20.6-10.2 32.4L404.3 192H171.7L253.3 35.1zM192 304v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16s16 7.2 16 16zm96-16c8.8 0 16 7.2 16 16v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16zm128 16v96c0 8.8-7.2 16-16 16s-16-7.2-16-16V304c0-8.8 7.2-16 16-16s16 7.2 16 16z"/></svg>

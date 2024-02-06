@@ -11,16 +11,40 @@ const Party = (props)=>{
     const handleCloseForm = ()=>{
         setupdate(false);
     }
+    useEffect(()=>{
+        if(item.opening_bal>=0){
+            document.getElementById(`${item.id}`).style.color='green';
+        }
+        else{
+            document.getElementById(`${item.id}`).style.color='red';
+
+        }
+    },[item.opening_bal])
     return (
         <React.Fragment>
             <div className="item" >
                 <div className="left-i partyl" onClick={handleItem}>
-                    <div id="name ">
+                    <div id="name">
                         {item.party_name}
+                        <span id="loc">
+                            (Add. {item.party_add})
+                        </span>
                     </div>
-                    <div id="sp">{item.opening_bal} Rs</div>
-                    <div id="qty">{item.qty} {item.party_mobile}</div>
-                    <div id="loc">{item.party_add}</div>
+                    <div id="sp">
+                        <span id="title">Balance</span>
+                        <br></br>
+                        <samp id={item.id}>{item.opening_bal} Rs</samp>
+                    </div>
+                    <div id="qty">
+                        <span id="title">Contact</span>
+                        <br></br>
+                        {item.qty} {item.party_mobile}
+                    </div>
+                    <div id="locd">
+                        <span id="title">Address</span>
+                        <br></br>
+                        {item.party_add}
+                    </div>
                 </div> 
                 <div className="right-i partyr">
     

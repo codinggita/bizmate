@@ -30,25 +30,36 @@ const UpdateItem = (props)=>{
                     </div>
                 </div>
                 <form id='update' onSubmit={handleSubmit}>
+                    <lable>Item Name</lable>
+                    <input type='text' id='namei'  placeholder={`${curItem.item_name}`} >
+                    </input>
+                    <lable>Item Type</lable>
+                    <input type='text' id='typei' placeholder={`${curItem.item_type}`}>
+                
+                    </input>
+                    <lable>Sale Price</lable>
 
-                    <input type='text' id='namei'  placeholder={`Item : ${curItem.item_name}`}>
-                    </input>
-                    <input type='text' id='typei' placeholder={`Type : ${curItem.item_type}`}>
+                    <input type='number' id='spi' placeholder={`${curItem.sale_price}`}>
                         
                     </input>
-                    <input type='number' id='spi' placeholder={`Sale : ${curItem.sale_price}`}>
+                    <lable>Purchase Price</lable>
+
+                    <input type='number' id='cpi' placeholder={`${curItem.purchase_price}`}>
                         
                     </input>
-                    <input type='number' id='cpi' placeholder={`Purchase : ${curItem.purchase_price}`}>
+                    <lable>Current Stock</lable>
+
+                    <input type='number' id='qtyi' placeholder={`${curItem.qty}`}>
                         
                     </input>
-                    <input type='number' id='qtyi' placeholder={`Qty : ${curItem.qty}`}>
+                    <lable>Measuring Unit</lable>
+
+                    <input type='text' id='uniti' placeholder={`${curItem.unit}`}>
                         
                     </input>
-                    <input type='text' id='uniti' placeholder={`Unit : ${curItem.unit}`}>
-                        
-                    </input>
-                    <input type='text' id='loci'placeholder={`Location : ${curItem.location}`}>
+                    <lable>Item Location</lable>
+
+                    <input type='text' id='loci'placeholder={`${curItem.location}`}>
                         
                     </input>
                     
