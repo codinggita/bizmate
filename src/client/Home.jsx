@@ -16,6 +16,18 @@ const Home = (props)=>{
     //item object
     const[shop, setShop] = useState(
         {
+            dashboard: {
+                get: 0,
+                give: 0,
+                sale: 0,
+                purchase: 0,
+                montlysale: [],
+                stockVale: 0,
+                lowstock: 0,
+                lowstockItem: [],
+                mon:[],
+                val:[],
+            },
             items : [
                 {
                     id:0,
@@ -45,6 +57,7 @@ const Home = (props)=>{
             ]
         }
     );
+    
     const AddSale = (sale)=>{
         const newI = shop.items;
         sale.item.map(item => {
@@ -207,12 +220,92 @@ const Home = (props)=>{
             setShop({...shop,
                 partys: uitems});
             }
-      };
-    const [activeComponent, setActiveComponent] = useState('dashboard');
+        };
+        const [activeComponent, setActiveComponent] = useState('dashboard');
+        
+        useEffect(() => {
+            let getSum = 0;
+            let giveSum = 0;
+            let saleTotal = 0;
+            let purchaseTotal = 0;
+            const monthlySaleMap = {};
+            let stockValue = 0;
+            let lowStockCount = 0;
+            const lowStockItems = [];
+            const mon_= [];
+            const val_=[];
+
+            shop.partys.forEach(party => {
+                const openingBal = party.opening_bal;
+                if (openingBal >= 0) {
+                    getSum += openingBal;
+                } else {
+                    giveSum += (-1 * openingBal);
+                }
+            });
+
+            shop.sale.forEach(sale => {
+                saleTotal += sale.total;
+                const saleDate = new Date(sale.date);
+                const month = saleDate.getMonth();
+                const year = saleDate.getFullYear();
+                const key = `${year}-${month}`;
+                if (!monthlySaleMap[key]) {
+                    monthlySaleMap[key] = 0;
+                }
+                monthlySaleMap[key] += sale.total;
+            });
+
+            shop.purchase.forEach(purchase => {
+                purchaseTotal += purchase.total;
+            });
+
+            const monthlySale = Object.keys(monthlySaleMap).map(key => ({
+                month: key,
+                total: monthlySaleMap[key]
+            }));
+            monthlySale.forEach(item => {
+                mon_.push(item.month);
+                val_.push(item.total);
+                console.log(mon_);
+                console.log(val_);
+            });
+            // Calculate stock value and low stock count
+            shop.items.forEach(item => {
+                if(item.qty > 0){
+                    stockValue += item.purchase_price * item.qty;
+                }
+                if (item.qty < 0) {
+                    lowStockCount++;
+                    lowStockItems.push(item);
+                }
+            });
+
+            setShop(prevState => ({
+                ...prevState,
+                dashboard: {
+                    get: parseInt(getSum),
+                    give: parseInt(giveSum),
+                    sale: parseInt(saleTotal),
+                    purchase: parseInt(purchaseTotal),
+                    montlysale: monthlySale,
+                    stockVale: stockValue,
+                    lowstock: lowStockCount,
+                    lowstockItem: lowStockItems,
+                    mon:mon_,
+                    val:val_,
+                }
+            }));
+           
+        
+        }, [shop.partys, shop.sale, shop.purchase,activeComponent]);
     const renderActiveComponent = () => {
         switch (activeComponent) {
             case 'dashboard':
-                return <Dashboard />;
+                return <Dashboard 
+                company = {props.user}
+                dash = {shop.dashboard}
+                />;
             case 'inventory':
                 return <Inventory 
                 items = {shop.items} 
@@ -348,7 +441,7 @@ const Home = (props)=>{
                 <aside>
                     <div className="home-logo">
                         <img src={logo}/>
-                        <span>izMate</span>
+                        <span>izMate</span> 
                     </div>
                     <button onClick={() => handleButtonClick('dashboard')}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64V400c0 44.2 35.8 80 80 80H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H80c-8.8 0-16-7.2-16-16V64zm406.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L320 210.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L240 221.3l57.4 57.4c12.5 12.5 32.8 12.5 45.3 0l128-128z"/></svg>

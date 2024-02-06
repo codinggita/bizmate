@@ -1,8 +1,9 @@
 .sale{
     overflow: hidden;
-    width: 100%;
-    height: 100%;
+    width: 97%;
+    height: 95%;
     position: relative;
+    border-radius: 15px;
 }
 
 .sale-detail{
@@ -28,7 +29,7 @@
     width: 130px;
     border-radius: 40px;
     position: fixed;
-    bottom: 2%
+    bottom: 7%
 }
 .add-sale:hover{
     color: black;
@@ -63,8 +64,12 @@
     width: 33.33%;
 }
 
-
 @media screen and (max-width:800px){
+    .sale{
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
     .sale-detail{
         margin: 0;
         width: 100%;

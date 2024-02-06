@@ -81,6 +81,7 @@
     position: fixed;
     top: -0.5%;
     left: 15%;
+    z-index: 100;
 }
 #sav{
     border-radius: 7px;
@@ -89,12 +90,14 @@
     width: 100%;
 }
 .suggest{
-    width: 100%;
+    
     margin-top: -12px;
     max-height: 200px;
     overflow: auto;
     position: absolute;
     z-index: 10;
+    border-radius: 10x;
+    margin-bottom: 20px;
 }
 .suggest h6{
     font-size: 1rem;
@@ -103,7 +106,8 @@
     background-color: white;
 }
 .suggest h6:nth-child(2n){
-    background-color: rgba(0, 0, 0, 0.221);
+    background-color: #1c4d75;
+    color: white;
 }
 .item-selected{
     margin-top: 10px;
