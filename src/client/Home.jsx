@@ -264,11 +264,14 @@ const Home = (props)=>{
                 month: key,
                 total: monthlySaleMap[key]
             }));
+            mon_.push('-1');
+            mon_.push('0');
+            val_.push(0);
+            val_.push(0);
             monthlySale.forEach(item => {
                 mon_.push(item.month);
                 val_.push(item.total);
-                console.log(mon_);
-                console.log(val_);
+                
             });
             // Calculate stock value and low stock count
             shop.items.forEach(item => {
