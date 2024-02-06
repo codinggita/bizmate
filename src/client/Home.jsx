@@ -238,9 +238,9 @@ const Home = (props)=>{
             shop.partys.forEach(party => {
                 const openingBal = party.opening_bal;
                 if (openingBal >= 0) {
-                    getSum += openingBal;
+                    getSum += parseInt(openingBal);
                 } else {
-                    giveSum += (-1 * openingBal);
+                    giveSum += parseInt(-1 * openingBal);
                 }
             });
 
