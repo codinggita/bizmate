@@ -28,7 +28,7 @@
     width: 130px;
     border-radius: 40px;
     position: fixed;
-    bottom: 10%
+    bottom: 2%
 }
 .add-sale:hover{
     color: black;
@@ -80,5 +80,7 @@
         width: 94%;
         overflow: auto;
     }
-    
+    .add-sale{
+        bottom: 10%;
+    }
 }
