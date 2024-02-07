@@ -70,7 +70,7 @@ const Home = (props)=>{
         const pi = shop.partys.findIndex((p) => p.id === sale.party_id);
         if(pi !== -1){
             const uitems = shop.partys;
-            uitems[pi].opening_bal = uitems[pi].opening_bal + sale.balance;
+            uitems[pi].opening_bal = parseInt(uitems[pi].opening_bal) + parseInt(sale.balance);
             setShop({...shop,
                 partys: uitems});
         }
@@ -82,7 +82,7 @@ const Home = (props)=>{
             usale.push(sale);
         }
         else{
-            const newId = usale[len-1].id + 1;
+            const newId = parseInt(usale[len-1].id) + 1;
             sale.id = newId;
             usale.push(sale);
         }
@@ -100,7 +100,7 @@ const Home = (props)=>{
         const pi = shop.partys.findIndex((p) => p.id === sale.party_id);
         if(pi !== -1){
             const uitems = shop.partys;
-            uitems[pi].opening_bal = uitems[pi].opening_bal - sale.balance;
+            uitems[pi].opening_bal = parseInt(uitems[pi].opening_bal) - parseInt(sale.balance);
             setShop({...shop,
                 partys: uitems});
         }
@@ -238,9 +238,9 @@ const Home = (props)=>{
             shop.partys.forEach(party => {
                 const openingBal = party.opening_bal;
                 if (openingBal >= 0) {
-                    getSum += openingBal;
+                    getSum += parseInt(openingBal);
                 } else {
-                    giveSum += (-1 * openingBal);
+                    giveSum += parseInt(-1 * openingBal);
                 }
             });
 
